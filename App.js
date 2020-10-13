@@ -9,8 +9,8 @@ export default function App() {
   const [currenciesDay, setCurrenciesDay] = useState(today);
   const [currenciesData, setCurrenciesData] = useState([]);
 
-  function fetchCountriesData() {
-    fetch(`http://127.0.0.1:3000/api/v1/currencies?day=${currenciesDay}`)
+  function fetchCountriesData(dateString) {
+    fetch(`http://127.0.0.1:3000/api/v1/currencies?day=${dateString}`)
       .then((response) => response.json())
       .then((json) => setCurrenciesData(json))
       .catch((error) => console.error(error))
@@ -18,7 +18,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (isLoading) fetchCountriesData();
+    if (isLoading) fetchCountriesData(currenciesDay);
   })
 
   return (
@@ -47,10 +47,11 @@ export default function App() {
             textDayFontWeight: '600',
             textMonthFontWeight: '600'
           } }
+          onDayPress={ (day) => { fetchCountriesData(day.dateString) } }
         />
 
         { isLoading ? <ActivityIndicator /> : (
-          currenciesData ? (
+          (currenciesData && currenciesData.daily_rates) ? (
             <FlatList
               data={ Object.values(currenciesData.daily_rates) }
               contentContainerStyle={ styles.container }
@@ -63,7 +64,7 @@ export default function App() {
                       { item.cur_abbreviation }
                     </Text>
                     <Text style={ styles.text }>
-                      <Text style={ styles.boldText }>{ item.cur_official_rate }</Text>BYN
+                      <Text style={ styles.boldText }>{ item.cur_official_rate }</Text> BYN
                     </Text>
                   </View>
                 )
