@@ -83,7 +83,7 @@ function CalendarWithBankData(props) {
               )
             } }
           />
-        ) : <Text style={ styles.notFound }>No currencies found for selected date.</Text>
+        ) : <Text style={ styles.notFound }>Please select date from calendar.</Text>
       ) }
     </View>
   );
