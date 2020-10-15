@@ -59,7 +59,7 @@ function LoginForm(props) {
       props.handleLogin()
     })
     .catch((error) => {
-      setError(error)
+      setError(error.message)
       setEmail('')
       setPassword('')
     })
