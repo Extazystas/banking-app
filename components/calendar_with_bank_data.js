@@ -72,11 +72,11 @@ function CalendarWithBankData(props) {
             renderItem={ ({ item }) => {
               return (
                 <View style={ { flexDirection: 'row', marginTop: 5, borderWidth: 1 } }>
-                  <Text style={ [styles.text, { width: '30%' }] }>{ item.cur_quot_name }</Text>
-                  <Text style={ [styles.text, { width: '30%' }] }>
+                  <Text style={ [styles.text, { width: '40%' }] }>{ item.cur_quot_name }</Text>
+                  <Text style={ [styles.text, { width: '15%' }] }>
                     { item.cur_abbreviation }
                   </Text>
-                  <Text style={ styles.text }>
+                  <Text style={ [styles.text, { width: '30%' }] }>
                     <Text style={ styles.boldText }>{ item.cur_official_rate }</Text> BYN
                   </Text>
                 </View>
