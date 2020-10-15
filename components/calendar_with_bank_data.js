@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import dayjs from 'dayjs';
-import { getToken } from './jwt_auth'
+import { LogoutForm, getToken } from './jwt_auth'
 
 function CalendarWithBankData(props) {
   const today = dayjs().format('YYYY-MM-DD');
@@ -30,7 +30,6 @@ function CalendarWithBankData(props) {
     getToken()
       .then(res => setAuthToken(res))
       .then(() => fetchCountriesData(currenciesDay))
-    // fetchCountriesData(currenciesDay);
   }, [])
 
 
@@ -86,9 +85,7 @@ function CalendarWithBankData(props) {
           />
         ) : <Text style={ styles.notFound }>No currencies found for selected date.</Text>
       ) }
-      <TouchableOpacity onPress={ props.resetToken }>
-        <Text style={ styles.submit }>Log Out</Text>
-      </TouchableOpacity >
+      <LogoutForm resetToken={ props.resetToken } />
     </View>
   );
 }
@@ -117,18 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     fontSize: 14,
     margin: 10
-  },
-  submit: {
-    marginTop: 5,
-    fontWeight: 'bold',
-    padding: 7,
-    borderWidth: 1,
-    borderColor: '#000',
-    color: '#fff',
-    backgroundColor: '#903',
-    textAlign: 'center',
-    fontSize: 14
-  },
+  }
 });
 
 export { CalendarWithBankData }

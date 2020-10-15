@@ -104,6 +104,14 @@ function LoginForm(props) {
   )
 }
 
+function LogoutForm(props) {
+  return(
+    <TouchableOpacity onPress={ props.resetToken }>
+      <Text style={ styles.logout_button }>Log Out</Text>
+    </TouchableOpacity >
+  )
+}
+
 const styles = StyleSheet.create({
   form_container: {
     flex: 1,
@@ -139,6 +147,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18
   },
+  logout_button: {
+    marginTop: 5,
+    fontWeight: 'bold',
+    padding: 7,
+    borderWidth: 1,
+    borderColor: '#000',
+    color: '#fff',
+    backgroundColor: '#903',
+    textAlign: 'center',
+    fontSize: 14
+  },
   error: {
     textAlign: 'left',
     fontWeight: 'bold',
@@ -146,4 +165,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export { LoginForm, getToken, removeToken }
+export { LoginForm, LogoutForm, getToken, removeToken }
