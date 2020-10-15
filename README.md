@@ -8,3 +8,9 @@
 ## Tech info:
 
 ## Setup
+
+## TODO
+- use SecureStore on mobile devises instead of AsyncStorage
+- add dark theme
+- add more banking data sections
+
