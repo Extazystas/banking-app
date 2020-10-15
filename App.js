@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, SafeAreaView } from 'react-native';
-import { LoginForm, getToken, removeToken } from './components/jwt_auth'
+import { View, StyleSheet, SafeAreaView } from 'react-native';
+import { LoginForm, LogoutForm, getToken, removeToken } from './components/jwt_auth'
 import { CalendarWithBankData } from './components/calendar_with_bank_data'
 
 export default function App() {
@@ -22,7 +22,10 @@ export default function App() {
   return (
     <SafeAreaView style={ styles.wrapper }>
       { (authToken !== 'undefined' && authToken !== null) ?
-        <CalendarWithBankData resetToken={ resetToken } /> :
+        <View style={ styles.wrapper }>
+          <CalendarWithBankData />
+          <LogoutForm resetToken={ resetToken } />
+        </View> :
         <LoginForm handleLogin={ handleLogin } /> }
     </SafeAreaView>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import dayjs from 'dayjs';
-import { LogoutForm, getToken } from './jwt_auth'
+import { getToken } from './jwt_auth'
 
 function CalendarWithBankData(props) {
   const today = dayjs().format('YYYY-MM-DD');
@@ -85,7 +85,6 @@ function CalendarWithBankData(props) {
           />
         ) : <Text style={ styles.notFound }>No currencies found for selected date.</Text>
       ) }
-      <LogoutForm resetToken={ props.resetToken } />
     </View>
   );
 }
