@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, SafeAreaView } from 'react-native';
-import { LoginForm, LogoutForm, getToken, removeToken } from './components/jwt_auth'
+import { LoginForm, LogoutForm } from './components/jwt_auth'
+import { getToken, removeToken } from './components/token_handler'
 import { CalendarWithBankData } from './components/calendar_with_bank_data'
 
 export default function App() {

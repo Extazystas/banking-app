@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ActivityIndicator, StyleSheet, Text, FlatList, View, TouchableOpacity } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import dayjs from 'dayjs';
-import { getToken } from './jwt_auth'
+import { getToken } from './token_handler'
 
 function CalendarWithBankData(props) {
   const today = dayjs().format('YYYY-MM-DD');
